@@ -1,0 +1,417 @@
+/* ============================= section-header-main ============================= */
+.section-header-main {
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-header-top {
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.header-logo {
+  font-weight: 700;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-img {
+  height: 28px;
+  cursor: pointer;
+}
+
+.logo-divider {
+  width: 1px;
+  height: 28px;
+  background-color: #dcdcdc;
+}
+
+.delivery-text {
+  color: #777;
+  font-size: 16px;
+}
+
+.header-search input {
+  width: 280px;
+  height: 42px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  padding: 0 45px 0 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.header-search .search-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 14px;
+  color: #a67e65;
+}
+
+.header-icons .icon-item {
+  font-size: 18px;
+  cursor: pointer;
+  color: #000;
+}
+
+.header-icons .count {
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.header-icons .icon-item:hover {
+  color: #b58a5b;
+}
+
+.section-header-bottom {
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.header-phone {
+  font-weight: 500;
+}
+
+.header-phone i {
+  color: #b58a5b;
+  font-size: 16px;
+}
+
+.header-phone span {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-phone span:hover {
+  text-decoration: underline;
+}
+
+.header-menu .nav-link {
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0;
+}
+
+.header-menu .nav-link:hover {
+  color: #b58a5b;
+  text-decoration: underline;
+}
+
+.small-icon {
+  font-size: 10px;
+}
+
+.header-free-try {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header-free-try i {
+  color: #b58a5b;
+  font-size: 16px;
+}
+
+/* ========shop */
+.mega-parent {
+  position: relative;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: -640px;
+  width: 100vw;
+  background: #f3f3f3;
+  padding: 40px 0;
+  display: none;
+}
+
+.mega-parent:hover .mega-menu {
+  display: block;
+}
+
+.mega-menu h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.mega-menu h6:hover {
+  color: #b58a5b;
+}
+
+.mega-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mega-menu ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.mega-menu ul li:hover {
+  color: #b58a5b;
+}
+
+.mega-image {
+  overflow: hidden;
+}
+
+.mega-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.mega-image:hover img {
+  transform: scale(1.1);
+}
+
+.mega-menu .row > div {
+  position: relative;
+  padding: 0 40px;
+}
+
+.mega-menu .row > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 55%;
+  background: #e0e0e0;
+}
+
+/* ======== products */
+.products-parent {
+  position: relative;
+}
+
+.products-mega {
+  position: absolute;
+  top: 100%;
+  left: -720px;
+  width: 100vw;
+  background: #f3f3f3;
+  padding: 50px 0;
+  display: none;
+}
+
+.products-parent:hover .products-mega {
+  display: block;
+}
+
+.products-mega .row > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: #e0e0e0;
+}
+
+.products-mega .row > div {
+  position: relative;
+  padding: 0 30px;
+}
+
+.products-mega ul {
+  list-style: none;
+  padding: 0;
+}
+
+.products-mega ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.products-mega ul li:hover {
+  color: #b58a5b;
+}
+
+.products-mega h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.products-mega h6:hover {
+  color: #b58a5b;
+}
+
+/* right side */
+.popular-header h5 {
+  font-weight: 600;
+}
+
+.slider-controls i {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: 0.3s ease;
+}
+
+.slider-controls i:hover {
+  color: #b58a5b;
+}
+
+.control-divider {
+  width: 1px;
+  height: 20px;
+  background: #ddd;
+  margin: 0 10px;
+}
+
+/* Slider Layout */
+.product-slider-wrapper {
+  overflow: hidden;
+}
+
+.product-slider {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.4s ease;
+}
+
+.product-card {
+  flex: 0 0 48%;
+  background: transparent;
+  text-align: center;
+}
+
+.product-img {
+  background: #fff;
+  border: 1px solid #ddd;
+  height: 150px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+.product-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #3ca66b;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #808080;
+}
+
+.price del {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #808080;
+}
+
+.slider-controls i.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* ======== pages */
+.pages-parent {
+  position: relative;
+}
+
+.pages-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 260px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  display: none;
+  padding: 15px 0;
+}
+
+.pages-parent:hover .pages-dropdown {
+  display: block;
+}
+
+.pages-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pages-menu li {
+  position: relative;
+}
+
+.pages-menu li a {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.pages-menu li a:hover {
+  color: #b58a5b;
+}
+
+.sub-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  display: none;
+  padding: 10px 0;
+}
+
+.has-submenu:hover .sub-dropdown {
+  display: block;
+}
+
+.sub-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sub-dropdown ul li a {
+  padding: 8px 20px;
+  display: block;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sub-dropdown ul li a:hover {
+  color: #b58a5b;
+}
