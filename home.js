@@ -46,7 +46,7 @@ if (currentIndex > 0) {
 
 updateArrows();
 
-//==================================================== silder
+//==================================================== hero section silder
 document.addEventListener("DOMContentLoaded", function () {
 
   const carouselElement = document.querySelector('#heroCarousel');
@@ -82,5 +82,53 @@ document.addEventListener("DOMContentLoaded", function () {
   carouselElement.addEventListener('slid.bs.carousel', updateArrows);
 
   updateArrows();
+
+});
+
+//==================================================== Popular category
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector('.category-slider');
+  const items = document.querySelectorAll('.category-card-wrapper');
+
+  let index = 0;
+  let visibleCards = getVisibleCards();
+  const total = items.length;
+
+  function getVisibleCards() {
+    if (window.innerWidth < 576) return 1;
+    if (window.innerWidth < 992) return 2;
+    return 3;
+  }
+
+  function getItemWidth() {
+    return items[0].offsetWidth;
+  }
+
+  function moveSlider() {
+    const itemWidth = getItemWidth();
+    slider.style.transform =
+      `translateX(-${index * itemWidth}px)`;
+  }
+
+  function nextSlide() {
+    visibleCards = getVisibleCards();
+
+    if (index >= total - visibleCards) {
+      index = 0;
+    } else {
+      index++;
+    }
+
+    moveSlider();
+  }
+
+  setInterval(nextSlide, 7000);
+
+  window.addEventListener('resize', () => {
+    visibleCards = getVisibleCards();
+    index = 0;
+    moveSlider();
+  });
 
 });
