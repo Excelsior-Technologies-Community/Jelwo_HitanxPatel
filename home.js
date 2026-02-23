@@ -132,3 +132,84 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+//==================================================== New jewelrys Countdown Timer
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const countdowns = document.querySelectorAll('.new-countdown');
+
+  countdowns.forEach(countdown => {
+
+    let days = parseInt(countdown.dataset.days);
+    let hours = parseInt(countdown.dataset.hours);
+    let minutes = parseInt(countdown.dataset.minutes);
+    let seconds = parseInt(countdown.dataset.seconds);
+
+    const daysEl = countdown.querySelector('.days');
+    const hoursEl = countdown.querySelector('.hours');
+    const minutesEl = countdown.querySelector('.minutes');
+    const secondsEl = countdown.querySelector('.seconds');
+
+    function updateTimer() {
+
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        seconds = 59;
+
+        if (minutes > 0) {
+          minutes--;
+        } else {
+          minutes = 59;
+
+          if (hours > 0) {
+            hours--;
+          } else {
+            hours = 23;
+
+            if (days > 0) {
+              days--;
+            } else {
+              clearInterval(timer);
+              return;
+            }
+          }
+        }
+      }
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+
+    }
+
+    const timer = setInterval(updateTimer, 1000);
+
+  });
+
+});
+
+//==================================================== New jewelrys qty btn
+document.querySelectorAll(".qty-box").forEach(box => {
+
+    const minusBtn = box.querySelector(".qty-minus");
+    const plusBtn = box.querySelector(".qty-plus");
+    const numberEl = box.querySelector(".qty-number");
+
+    let quantity = 1;
+
+    plusBtn.addEventListener("click", () => {
+        quantity++;
+        numberEl.textContent = quantity;
+    });
+
+    minusBtn.addEventListener("click", () => {
+        if (quantity > 1) {
+            quantity--;
+            numberEl.textContent = quantity;
+        }
+    });
+
+});
