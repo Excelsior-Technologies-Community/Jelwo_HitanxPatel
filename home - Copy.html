@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
 
@@ -641,7 +641,10 @@
                             <div class="hover-overlay">
                                 <div class="hover-icons">
                                     <i class="bi bi-heart"></i>
-                                    <i class="bi bi-eye"></i>
+                                    <i class="bi bi-eye"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#pearlQuickView">
+                                    </i>
                                 </div>
                             </div>
 
@@ -887,6 +890,112 @@
             <a href="#" class="btn new-collection-btn">VIEW COLLECTION</a>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ============================= section-product-modal-main ============================= -->
+    <section class="section-product-modal-main">
+        <div class="modal fade product-view-modal" id="pearlQuickView" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+
+                    <button type="button" class="btn-close modal-close-btn"
+                        data-bs-dismiss="modal"></button>
+
+                    <div class="modal-body p-0">
+
+                        <div class="row g-0">
+
+                            <div class="col-lg-6 modal-left-area">
+
+                                <div class="main-product-img position-relative text-center">
+
+                                    <button class="img-nav img-prev">
+                                        <i class="bi bi-arrow-left"></i>
+                                    </button>
+
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-6.jpg?v=1742442751&width=600"
+                                        class="img-fluid main-img">
+
+                                    <button class="img-nav img-next">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
+
+                                </div>
+
+                                <div class="thumb-wrapper">
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-6.jpg?v=1742442751&width=200">
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-7.jpg?v=1741603703&width=200">
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-8.jpg?v=1741603703&width=200">
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-9.jpg?v=1741603703&width=200">
+                                    <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-8.jpg?v=1741603703&width=200">
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-6 modal-right-area">
+
+                                <h2 class="product-title">Simple Pearl earrings</h2>
+
+                                <div class="rating-stars mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+
+                                <div class="price-wrapper">
+                                    <span class="current-price">Rs. 15.00</span>
+                                    <del>Rs. 20.00</del>
+                                    <span class="sale-tag">Sale 25%</span>
+                                </div>
+
+                                <p class="tax-text">
+                                Tax included. Shipping calculated at checkout.
+                                </p>
+
+                                <div class="stock-status">
+                                    <span class="stock-dot"></span> 16 in stock
+                                </div>
+
+                                <hr>
+
+                                <p class="desc-text">
+                                Care for fiber: 30% more recycled polyester. We label garments
+                                manufactured using environmentally friendly technologies and raw
+                                materials with the Join Life label.
+                                </p>
+
+                                <div class="option-group">
+                                    <strong>Color:</strong>
+                                    <span class="selected-color">Gold</span>
+
+                                    <div class="color-group">
+                                        <span class="color gold active"></span>
+                                        <span class="color brown"></span>
+                                        <span class="color silver"></span>
+                                    </div>
+                                </div>
+
+                                <div class="qty-box2">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+
+                                <div class="btn-group-modal">
+                                    <button class="add-cart-btn-modal">ADD TO CART</button>
+                                    <button class="buy-now-btn-modal">BUY IT NOW</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

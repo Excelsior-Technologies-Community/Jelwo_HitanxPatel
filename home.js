@@ -213,3 +213,53 @@ document.querySelectorAll(".qty-box").forEach(box => {
     });
 
 });
+
+
+//==================================================== New jewelrys in eye icon - Modal Color Select FINAL FIX
+
+document.addEventListener("click", function (e) {
+
+  if (e.target.classList.contains("color")) {
+
+    const clickedColor = e.target;
+    const group = clickedColor.closest(".color-group");
+    const colors = group.querySelectorAll(".color");
+
+    colors.forEach(c => c.classList.remove("active"));
+
+    clickedColor.classList.add("active");
+
+    const selectedText = group.closest(".option-group")
+                              .querySelector(".selected-color");
+
+    const colorName = clickedColor.classList[1];
+
+    selectedText.textContent =
+      colorName.charAt(0).toUpperCase() + colorName.slice(1);
+  }
+
+});
+
+// ================= New jewelrys in eye icon - Quantity Box JS =================
+
+document.querySelectorAll(".qty-box2").forEach(box => {
+
+  const minusBtn = box.querySelector("button:first-child");
+  const plusBtn = box.querySelector("button:last-child");
+  const numberEl = box.querySelector("span");
+
+  let quantity = 1;
+
+  plusBtn.addEventListener("click", function () {
+    quantity++;
+    numberEl.textContent = quantity;
+  });
+
+  minusBtn.addEventListener("click", function () {
+    if (quantity > 1) {
+      quantity--;
+      numberEl.textContent = quantity;
+    }
+  });
+
+});
