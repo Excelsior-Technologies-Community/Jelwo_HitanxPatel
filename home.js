@@ -263,3 +263,94 @@ document.querySelectorAll(".qty-box2").forEach(box => {
   });
 
 });
+
+// ================= New jewelrys in eye icon - Modal Image Slider 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const mainImg = document.querySelector(".main-img");
+  const thumbs = document.querySelectorAll(".thumb-wrapper img");
+  const prevBtn = document.querySelector(".img-prev");
+  const nextBtn = document.querySelector(".img-next");
+
+  let currentIndex = 0;
+
+  const images = Array.from(thumbs).map(img => img.src);
+
+  function updateImage() {
+    mainImg.src = images[currentIndex];
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove("active-thumb");
+    });
+
+    thumbs[currentIndex].classList.add("active-thumb");
+  }
+
+  nextBtn.addEventListener("click", function () {
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+
+    updateImage();
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+
+    updateImage();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", function () {
+      currentIndex = index;
+      updateImage();
+    });
+  });
+
+});
+
+// ================= NEW JEWELRYS SLIDER =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector(".new-slider");
+  const items = document.querySelectorAll(".new-product-card-wrapper");
+
+  let index = 0;
+
+  function getVisibleItems() {
+    if (window.innerWidth <= 359) return 1;
+    if (window.innerWidth <= 639) return 2;
+    if (window.innerWidth <= 1198) return 3;
+    return 4;
+  }
+
+  function moveSlider() {
+    const itemWidth = items[0].offsetWidth + 20;
+    slider.style.transform = `translateX(-${index * itemWidth}px)`;
+  }
+
+  function nextSlide() {
+    const visible = getVisibleItems();
+    if (index >= items.length - visible) {
+      index = 0;
+    } else {
+      index++;
+    }
+    moveSlider();
+  }
+
+  setInterval(nextSlide, 4000);
+
+  window.addEventListener("resize", function () {
+    index = 0;
+    moveSlider();
+  });
+
+});

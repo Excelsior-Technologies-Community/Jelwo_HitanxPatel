@@ -263,3 +263,54 @@ document.querySelectorAll(".qty-box2").forEach(box => {
   });
 
 });
+
+// ================= New jewelrys in eye icon - Modal Image Slider 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const mainImg = document.querySelector(".main-img");
+  const thumbs = document.querySelectorAll(".thumb-wrapper img");
+  const prevBtn = document.querySelector(".img-prev");
+  const nextBtn = document.querySelector(".img-next");
+
+  let currentIndex = 0;
+
+  const images = Array.from(thumbs).map(img => img.src);
+
+  function updateImage() {
+    mainImg.src = images[currentIndex];
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove("active-thumb");
+    });
+
+    thumbs[currentIndex].classList.add("active-thumb");
+  }
+
+  nextBtn.addEventListener("click", function () {
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+
+    updateImage();
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+
+    updateImage();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", function () {
+      currentIndex = index;
+      updateImage();
+    });
+  });
+
+});
