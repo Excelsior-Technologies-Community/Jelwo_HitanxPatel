@@ -316,41 +316,82 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ================= NEW JEWELRYS SLIDER =================
+const sliderWrapper = document.querySelector(".new-slider-wrapper");
+const sliderTrack = document.querySelector(".new-slider");
 
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+sliderWrapper.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  sliderTrack.style.transition = "none";
+  startX = e.pageX;
+  scrollLeft = sliderTrack.offsetLeft;
+});
+
+sliderWrapper.addEventListener("mouseleave", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mouseup", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+
+  const x = e.pageX;
+  const walk = (x - startX);
+
+  sliderTrack.style.transform = `translateX(${scrollLeft + walk}px)`;
+});
+
+// ================= Happy customer silder
 document.addEventListener("DOMContentLoaded", function () {
 
-  const slider = document.querySelector(".new-slider");
-  const items = document.querySelectorAll(".new-product-card-wrapper");
+  const track = document.querySelector(".happy-slider");
+  const cards = document.querySelectorAll(".happy-card");
+
+  if (!track || cards.length === 0) return;
 
   let index = 0;
+  let visibleCards = window.innerWidth < 991 ? 1 : 2;
+  const totalCards = cards.length;
 
-  function getVisibleItems() {
-    if (window.innerWidth <= 359) return 1;
-    if (window.innerWidth <= 639) return 2;
-    if (window.innerWidth <= 1198) return 3;
-    return 4;
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width + 30; 
   }
 
-  function moveSlider() {
-    const itemWidth = items[0].offsetWidth + 20;
-    slider.style.transform = `translateX(-${index * itemWidth}px)`;
+  function updateVisible() {
+    visibleCards = window.innerWidth < 991 ? 1 : 2;
   }
 
-  function nextSlide() {
-    const visible = getVisibleItems();
-    if (index >= items.length - visible) {
+  function goToSlide(i) {
+    const width = getCardWidth();
+    track.style.transition = "transform 0.5s ease";
+    track.style.transform = `translateX(-${i * width}px)`;
+  }
+
+  function autoSlide() {
+    updateVisible();
+    index++;
+
+    if (index > totalCards - visibleCards) {
       index = 0;
-    } else {
-      index++;
     }
-    moveSlider();
+
+    goToSlide(index);
   }
 
-  setInterval(nextSlide, 4000);
+  setInterval(autoSlide, 5000);
 
-  window.addEventListener("resize", function () {
-    index = 0;
-    moveSlider();
+  window.addEventListener("resize", () => {
+    updateVisible();
+    goToSlide(index);
   });
 
 });

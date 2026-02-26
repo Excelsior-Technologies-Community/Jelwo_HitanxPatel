@@ -314,3 +314,84 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+// ================= NEW JEWELRYS SLIDER =================
+const sliderWrapper = document.querySelector(".new-slider-wrapper");
+const sliderTrack = document.querySelector(".new-slider");
+
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+sliderWrapper.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  sliderTrack.style.transition = "none";
+  startX = e.pageX;
+  scrollLeft = sliderTrack.offsetLeft;
+});
+
+sliderWrapper.addEventListener("mouseleave", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mouseup", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+
+  const x = e.pageX;
+  const walk = (x - startX);
+
+  sliderTrack.style.transform = `translateX(${scrollLeft + walk}px)`;
+});
+
+// ================= Happy customer silder
+document.addEventListener("DOMContentLoaded", function () {
+
+  const track = document.querySelector(".happy-slider");
+  const cards = document.querySelectorAll(".happy-card");
+
+  if (!track || cards.length === 0) return;
+
+  let index = 0;
+  let visibleCards = window.innerWidth < 991 ? 1 : 2;
+  const totalCards = cards.length;
+
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width + 30; 
+  }
+
+  function updateVisible() {
+    visibleCards = window.innerWidth < 991 ? 1 : 2;
+  }
+
+  function goToSlide(i) {
+    const width = getCardWidth();
+    track.style.transition = "transform 0.5s ease";
+    track.style.transform = `translateX(-${i * width}px)`;
+  }
+
+  function autoSlide() {
+    updateVisible();
+    index++;
+
+    if (index > totalCards - visibleCards) {
+      index = 0;
+    }
+
+    goToSlide(index);
+  }
+
+  setInterval(autoSlide, 5000);
+
+  window.addEventListener("resize", () => {
+    updateVisible();
+    goToSlide(index);
+  });
+
+});
