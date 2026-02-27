@@ -1664,7 +1664,6 @@
 }
 
 /* ============================= section-jewelry-news-main ============================= */
-
 .section-jewelry-news-main {
   background: #fff;
   padding: 80px 0;
@@ -1677,13 +1676,38 @@
   color: #222;
 }
 
+.jewelry-news-slider-wrapper {
+  overflow: hidden;
+}
+
+.jewelry-news-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.jewelry-news-card-wrapper {
+  flex: 0 0 33.3333%;
+  padding: 20px;
+}
+
+@media (max-width: 991px) {
+  .jewelry-news-card-wrapper {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .jewelry-news-card-wrapper {
+    flex: 0 0 100%;
+  }
+}
+
 .jewelry-news-card {
   background: transparent;
 }
 
 .jewelry-news-img {
   overflow: hidden;
-  cursor: pointer;
 }
 
 .jewelry-news-img img {
@@ -1695,68 +1719,6 @@
 
 .jewelry-news-card:hover img {
   transform: scale(1.05);
-}
-
-.jewelry-news-meta {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: #a67e65;
-  margin-bottom: 20px;
-}
-
-.jewelry-news-meta span {
-  margin: 0 10px;
-}
-
-.jewelry-news-text {
-  font-size: 16px;
-  color: #777;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.jewelry-news-btn {
-  background: #a67e65;
-  color: #fff;
-  padding: 14px 40px;
-  border-radius: 40px;
-  font-weight: 600;
-  border: none;
-  transition: 0.3s ease;
-}
-
-.jewelry-news-btn:hover {
-  background: #000;
-  color: #fff;
-}
-
-/* Responsive */
-
-@media (max-width: 991px) {
-  .jewelry-news-heading {
-    font-size: 36px;
-  }
-
-  .jewelry-news-img img {
-    height: 240px;
-  }
-}
-
-@media (max-width: 576px) {
-  .jewelry-news-heading {
-    font-size: 28px;
-  }
-
-  .jewelry-news-text {
-    font-size: 14px;
-  }
-}
-
-/* ===== Jewelry News Hover Arrow ===== */
-
-.jewelry-news-img {
-  overflow: hidden;
 }
 
 .jewelry-news-overlay {
@@ -1795,34 +1757,333 @@
   transform: scale(1);
 }
 
-/* ===== Jewelry News Slider ===== */
-
-.jewelry-news-slider-wrapper {
-  overflow: hidden;
-  position: relative;
+.jewelry-news-meta {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #a67e65;
+  margin-bottom: 20px;
 }
 
-.section-jewelry-news-main .row {
-  display: flex;
-  flex-wrap: nowrap;
-  transition: transform 0.5s ease;
+.jewelry-news-meta span {
+  margin: 0 10px;
 }
 
-.section-jewelry-news-main .col-lg-4 {
-  flex: 0 0 33.3333%;
+.jewelry-news-text {
+  font-size: 16px;
+  color: #777;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.news-slider-controls button {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+.jewelry-news-btn {
+  background: #a67e65;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 40px;
+  font-weight: 600;
   border: none;
-  background: #f3f3f3;
-  margin-left: 10px;
   transition: 0.3s ease;
 }
 
-.news-slider-controls button:hover {
-  background: #a67e65;
+.jewelry-news-btn:hover {
+  background: #000;
   color: #fff;
+}
+
+@media (max-width: 991px) {
+  .jewelry-news-heading {
+    font-size: 36px;
+  }
+
+  .jewelry-news-img img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .jewelry-news-heading {
+    font-size: 28px;
+  }
+
+  .jewelry-news-text {
+    font-size: 14px;
+  }
+}
+
+/* ============================= section-watch-reels-main ============================= */
+
+.section-watch-reels-main {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.watch-reels-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 500;
+}
+
+.watch-reels-slider-wrapper {
+  overflow: hidden;
+}
+
+.watch-reels-wrapper {
+  display: flex;
+  gap: 25px;
+}
+
+.watch-reel-card {
+  position: relative;
+  flex: 0 0 calc((100% - 100px) / 5);
+  height: 520px;
+  overflow: hidden;
+}
+
+.watch-reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.watch-reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.watch-reel-content {
+  position: absolute;
+  bottom: 80px;
+  left: 25px;
+  z-index: 2;
+  color: #fff;
+}
+
+.watch-product-img {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-product-img img {
+  position: absolute;
+  max-width: 60px;
+  transition: opacity 0.4s ease;
+}
+
+.img-default {
+  opacity: 1;
+}
+
+.img-hover {
+  opacity: 0;
+}
+
+.watch-reel-card:hover .img-default {
+  opacity: 0;
+}
+
+.watch-reel-card:hover .img-hover {
+  opacity: 1;
+}
+
+.watch-product-text h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.watch-product-text p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.watch-cart-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+  right: 25px;
+  background: #b58a5b;
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.watch-cart-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.watch-reel-arrows button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #efefef;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.watch-reel-arrows button:hover {
+  background: #b58a5b;
+  color: #fff;
+}
+
+.watch-prev,
+.watch-next {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.watch-prev.disabled,
+.watch-next.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.watch-prev.disabled i,
+.watch-next.disabled i {
+  color: #ccc;
+}
+
+.watch-reel-card {
+  flex: 0 0 calc((100% - 100px) / 5);
+}
+
+@media (max-width: 1198px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 75px) / 4);
+  }
+}
+
+@media (max-width: 990px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 50px) / 3);
+  }
+}
+
+@media (max-width: 639px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 25px) / 2);
+  }
+}
+
+@media (max-width: 359px) {
+  .watch-reel-card {
+    flex: 0 0 100%;
+  }
+}
+
+/* ============================= section-footer-main ============================= */
+.section-footer-main {
+    background: #f3f0ec;
+    color: #777;
+    font-size: 14px;
+}
+
+.footer-logo img {
+    height: 35px;
+}
+
+.footer-contact{
+  font-weight: 500;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+.footer-contact li:hover {
+    color: #a67e65;
+}
+
+.footer-contact i {
+    color: #a67e65;
+    margin-right: 8px;
+}
+
+.footer-social i {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-social i:hover {
+    background: #a67e65;
+    color: #fff;
+    border-color: #a67e65;
+}
+
+.footer-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #a67e65;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-links li:hover {
+    color: #a67e65;
+}
+
+.subscribe-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #a67e65;
+}
+
+.subscribe-box input {
+    width: 320px;
+    height: 60px;
+    background: #e9e5df; 
+    flex: 1;
+    height: 50px;
+    border-radius: 40px 0 0 40px;
+    border: 1px solid #ddd;
+    padding-left: 20px;
+    outline: none;
+    font-weight: 500;
+}
+
+.subscribe-btn {
+    height: 50px;
+    padding: 0 40px;
+    border-radius: 0 40px 40px 0;
+    border: none;
+    background: #a67e65;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.subscribe-btn:hover {
+    background: #000;
+}
+
+.footer-bottom {
+    background: #fff;
+    padding: 40px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-payment img {
+    height: 28px;
 }

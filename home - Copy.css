@@ -1662,3 +1662,320 @@
   color: #a67e65;
   opacity: 0.6;
 }
+
+/* ============================= section-jewelry-news-main ============================= */
+.section-jewelry-news-main {
+  background: #fff;
+  padding: 80px 0;
+}
+
+.jewelry-news-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #222;
+}
+
+.jewelry-news-slider-wrapper {
+  overflow: hidden;
+}
+
+.jewelry-news-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.jewelry-news-card-wrapper {
+  flex: 0 0 33.3333%;
+  padding: 20px;
+}
+
+@media (max-width: 991px) {
+  .jewelry-news-card-wrapper {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .jewelry-news-card-wrapper {
+    flex: 0 0 100%;
+  }
+}
+
+.jewelry-news-card {
+  background: transparent;
+}
+
+.jewelry-news-img {
+  overflow: hidden;
+}
+
+.jewelry-news-img img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.jewelry-news-card:hover img {
+  transform: scale(1.05);
+}
+
+.jewelry-news-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.jewelry-news-arrow {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transition: 0.4s ease;
+}
+
+.jewelry-news-arrow i {
+  font-size: 22px;
+  color: #a67e65;
+}
+
+.jewelry-news-card:hover .jewelry-news-overlay {
+  opacity: 1;
+}
+
+.jewelry-news-card:hover .jewelry-news-arrow {
+  transform: scale(1);
+}
+
+.jewelry-news-meta {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #a67e65;
+  margin-bottom: 20px;
+}
+
+.jewelry-news-meta span {
+  margin: 0 10px;
+}
+
+.jewelry-news-text {
+  font-size: 16px;
+  color: #777;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.jewelry-news-btn {
+  background: #a67e65;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 40px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.jewelry-news-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .jewelry-news-heading {
+    font-size: 36px;
+  }
+
+  .jewelry-news-img img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .jewelry-news-heading {
+    font-size: 28px;
+  }
+
+  .jewelry-news-text {
+    font-size: 14px;
+  }
+}
+
+/* ============================= section-watch-reels-main ============================= */
+
+.section-watch-reels-main {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.watch-reels-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 500;
+}
+
+.watch-reels-slider-wrapper {
+  overflow: hidden;
+}
+
+.watch-reels-wrapper {
+  display: flex;
+  gap: 25px;
+}
+
+.watch-reel-card {
+  position: relative;
+  flex: 0 0 calc((100% - 100px) / 5);
+  height: 520px;
+  overflow: hidden;
+}
+
+.watch-reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.watch-reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.watch-reel-content {
+  position: absolute;
+  bottom: 80px;
+  left: 25px;
+  z-index: 2;
+  color: #fff;
+}
+
+.watch-product-img {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watch-product-img img {
+  position: absolute;
+  max-width: 60px;
+  transition: opacity 0.4s ease;
+}
+
+.img-default {
+  opacity: 1;
+}
+
+.img-hover {
+  opacity: 0;
+}
+
+.watch-reel-card:hover .img-default {
+  opacity: 0;
+}
+
+.watch-reel-card:hover .img-hover {
+  opacity: 1;
+}
+
+.watch-product-text h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.watch-product-text p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.watch-cart-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+  right: 25px;
+  background: #b58a5b;
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 600;
+}
+
+.watch-cart-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.watch-reel-arrows button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #efefef;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.watch-reel-arrows button:hover {
+  background: #b58a5b;
+  color: #fff;
+}
+
+.watch-prev,
+.watch-next {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.watch-prev.disabled,
+.watch-next.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.watch-prev.disabled i,
+.watch-next.disabled i {
+  color: #ccc;
+}
+
+.watch-reel-card {
+  flex: 0 0 calc((100% - 100px) / 5);
+}
+
+@media (max-width: 1198px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 75px) / 4);
+  }
+}
+
+@media (max-width: 990px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 50px) / 3);
+  }
+}
+
+@media (max-width: 639px) {
+  .watch-reel-card {
+    flex: 0 0 calc((100% - 25px) / 2);
+  }
+}
+
+@media (max-width: 359px) {
+  .watch-reel-card {
+    flex: 0 0 100%;
+  }
+}

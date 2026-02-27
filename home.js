@@ -395,3 +395,123 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+// ================= Jewelry News Auto Slider =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const track = document.querySelector(".jewelry-news-slider");
+  const cards = document.querySelectorAll(".jewelry-news-card-wrapper");
+
+  if (!track || cards.length === 0) return;
+
+  let index = 0;
+  let visibleCards = getVisibleCards();
+  const totalCards = cards.length;
+
+  function getVisibleCards() {
+    if (window.innerWidth < 576) return 1;
+    if (window.innerWidth < 992) return 2;
+    return 3;
+  }
+
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width;
+  }
+
+  function goToSlide(i) {
+    const width = getCardWidth();
+    track.style.transform = `translateX(-${i * width}px)`;
+  }
+
+  function autoSlide() {
+    visibleCards = getVisibleCards();
+    index++;
+
+    if (index > totalCards - visibleCards) {
+      index = 0;
+    }
+
+    goToSlide(index);
+  }
+
+  setInterval(autoSlide, 5000);
+
+  window.addEventListener("resize", () => {
+    visibleCards = getVisibleCards();
+    goToSlide(index);
+  });
+
+});
+
+// ================= WATCH REELS SLIDER =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const wrapper = document.querySelector(".watch-reels-wrapper");
+  const cards = document.querySelectorAll(".watch-reel-card");
+  const prevBtn = document.querySelector(".watch-prev");
+  const nextBtn = document.querySelector(".watch-next");
+
+  if (!wrapper || cards.length === 0) return;
+
+  let index = 0;
+  let visibleCards = getVisibleCards();
+
+  function getVisibleCards() {
+    if (window.innerWidth <= 359) return 1;
+    if (window.innerWidth <= 639) return 2;
+    if (window.innerWidth <= 990) return 3;
+    if (window.innerWidth <= 1198) return 4;
+    return 5;
+  }
+  const totalCards = cards.length;
+
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width + 25; 
+  }
+
+  function updateSlider() {
+    const width = getCardWidth();
+    wrapper.style.transform = `translateX(-${index * width}px)`;
+    wrapper.style.transition = "transform 0.5s ease";
+    updateButtons();
+  }
+
+  nextBtn.addEventListener("click", function () {
+    visibleCards = getVisibleCards();
+
+    if (index < totalCards - visibleCards) {
+      index++;
+      updateSlider();
+    }
+  });
+
+  prevBtn.addEventListener("click", function () {
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+  });
+
+  function updateButtons() {
+    if (index === 0) {
+      prevBtn.classList.add("disabled");
+    } else {
+      prevBtn.classList.remove("disabled");
+    }
+
+    if (index >= totalCards - visibleCards) {
+      nextBtn.classList.add("disabled");
+    } else {
+      nextBtn.classList.remove("disabled");
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    visibleCards = getVisibleCards();
+    index = 0;
+    updateSlider();
+  });
+
+});
