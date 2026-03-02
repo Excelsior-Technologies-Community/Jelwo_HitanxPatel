@@ -515,3 +515,31 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+
+// ================= Footer  =================
+document.querySelectorAll(".mobile-footer-header").forEach(header => {
+
+  header.addEventListener("click", function () {
+
+    const content = this.nextElementSibling;
+    const icon = this.querySelector("span");
+
+    const isOpen = content.style.display === "block";
+
+    document.querySelectorAll(".mobile-footer-content").forEach(item => {
+      item.style.display = "none";
+    });
+
+    document.querySelectorAll(".mobile-footer-header span").forEach(i => {
+      i.textContent = "+";
+    });
+
+    if (!isOpen) {
+      content.style.display = "block";
+      icon.textContent = "−";
+    }
+
+  });
+
+});
