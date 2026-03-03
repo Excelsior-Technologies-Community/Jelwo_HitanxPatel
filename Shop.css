@@ -357,13 +357,13 @@
   padding: 15px 0;
 }
 
+.pages-parent:hover .pages-dropdown {
+  display: block;
+}
+
 .pages-dropdown,
 .sub-dropdown {
   z-index: 5;
-}
-
-.pages-parent:hover .pages-dropdown {
-  display: block;
 }
 
 .pages-menu {
@@ -421,4 +421,221 @@
 
 .sub-dropdown ul li a:hover {
   color: #b58a5b;
+}
+
+/* ================= 1198px HEADER FIX ================= */
+
+@media (max-width: 1198px) {
+  .delivery-text,
+  .logo-divider,
+  .header-menu {
+    display: none !important;
+  }
+
+  .section-header-top .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header-search input {
+    display: none;
+  }
+
+  .header-search {
+    margin-right: 10px;
+  }
+
+  .mobile-menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+}
+
+@media (max-width: 1198px) {
+
+  .section-header-top-right {
+    gap: 0px !important;
+  }
+
+  .header-search {
+    margin-right: 0 !important;
+  }
+
+  .header-search .bi-search {
+    color: #000 !important;
+  }
+
+}
+
+.offcanvas {
+  width: 300px;
+}
+
+.accordion-button {
+  background: #f5f5f5;
+  border: none;
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #f5f5f5;
+  color: #000;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.sub-menu div {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+.accordion-button {
+  position: relative;
+}
+
+.accordion-button::before {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.accordion-button:not(.collapsed)::before {
+  content: "-";
+}
+
+.no-icon::before {
+  display: none !important;
+}
+
+.accordion-button,
+.accordion-button a,
+.offcanvas a {
+  text-decoration: none !important;
+  color: #000;
+}
+
+.currency-default::after {
+  display: block !important;
+}
+
+.currency-default::before {
+  display: none !important;
+}
+
+/* ================= 600px MOBILE HEADER ================= */
+@media (max-width: 600px) {
+
+  .header-search {
+    display: none !important;
+  }
+
+  .header-icons .bi-person {
+    display: none !important;
+  }
+
+  .header-icons .bi-heart,
+  .header-icons .bi-heart + .count {
+    display: none !important;
+  }
+
+}
+
+/* ================= 480px MOBILE FIX ================= */
+
+@media (max-width: 480px) {
+
+  .header-free-try {
+    display: none !important;
+  }
+
+  .section-header-bottom .container {
+    justify-content: center !important;
+  }
+
+}
+
+/* ============================= section-collections-main ============================= */
+.section-collections-main {
+  font-family: 'Poppins', sans-serif;
+}
+
+.collections-banner {
+  height: 300px;
+  background: url('https://jelwo.myshopify.com/cdn/shop/files/jewelry-3-breadcrumb.jpg?v=1742473987&width=1920') center/cover no-repeat;
+  position: relative;
+  color: #fff;
+}
+
+.collections-breadcrumb {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.collections-title {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.collections-products {
+  background: #f3f3f3;
+}
+
+.collection-card {
+  padding: 30px;
+  background: transparent;
+}
+
+.collection-img {
+  background: #e9e9e9;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collection-img img {
+  max-height: 180px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.collection-img:hover img {
+  transform: scale(1.1);
+}
+
+.collection-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #fff;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 3;
+}
+
+.collection-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
 }

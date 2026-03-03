@@ -1,4 +1,4 @@
-// Popular collection
+//==================================================== Popular collection
 
 const slider = document.querySelector('.product-slider');
 const nextBtn = document.getElementById('nextBtn');
