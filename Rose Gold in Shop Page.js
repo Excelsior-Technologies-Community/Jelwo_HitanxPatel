@@ -256,32 +256,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ================= product
-// const gridBtn = document.getElementById("gridBtn");
-// const listBtn = document.getElementById("listBtn");
-
-// const gridView = document.getElementById("gridView");
-// const listView = document.getElementById("listView");
-
-// gridBtn.addEventListener("click", () => {
-
-//     gridView.style.display = "block";
-//     listView.style.display = "none";
-
-//     gridBtn.classList.add("active");
-//     listBtn.classList.remove("active");
-
-// });
-
-// listBtn.addEventListener("click", () => {
-
-//     gridView.style.display = "none";
-//     listView.style.display = "block";
-
-//     listBtn.classList.add("active");
-//     gridBtn.classList.remove("active");
-
-// });
-
 const gridBtns = document.querySelectorAll(".gridBtn");
 const listBtns = document.querySelectorAll(".listBtn");
 
