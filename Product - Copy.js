@@ -161,7 +161,7 @@ colorButtons.forEach((btn)=>{
 
 });
 
-// ================= Quantity Buttons =================
+// ================= Product Quantity Buttons =================
 
 const qtyInput = document.getElementById("qtyInput");
 const plusBtn = document.querySelector(".qty-plus");
