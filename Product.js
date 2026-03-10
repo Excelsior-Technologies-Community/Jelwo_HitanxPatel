@@ -176,3 +176,271 @@ minusBtn.addEventListener("click", ()=>{
         qtyInput.value = parseInt(qtyInput.value) - 1;
     }
 });
+
+
+//==================================================== New jewelrys Countdown Timer
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const countdowns = document.querySelectorAll('.new-countdown');
+
+  countdowns.forEach(countdown => {
+
+    let days = parseInt(countdown.dataset.days);
+    let hours = parseInt(countdown.dataset.hours);
+    let minutes = parseInt(countdown.dataset.minutes);
+    let seconds = parseInt(countdown.dataset.seconds);
+
+    const daysEl = countdown.querySelector('.days');
+    const hoursEl = countdown.querySelector('.hours');
+    const minutesEl = countdown.querySelector('.minutes');
+    const secondsEl = countdown.querySelector('.seconds');
+
+    function updateTimer() {
+
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        seconds = 59;
+
+        if (minutes > 0) {
+          minutes--;
+        } else {
+          minutes = 59;
+
+          if (hours > 0) {
+            hours--;
+          } else {
+            hours = 23;
+
+            if (days > 0) {
+              days--;
+            } else {
+              clearInterval(timer);
+              return;
+            }
+          }
+        }
+      }
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+
+    }
+
+    const timer = setInterval(updateTimer, 1000);
+
+  });
+
+});
+
+//==================================================== New jewelrys qty btn
+document.querySelectorAll(".qty-box").forEach(box => {
+
+    const minusBtn = box.querySelector(".qty-minus");
+    const plusBtn = box.querySelector(".qty-plus");
+    const numberEl = box.querySelector(".qty-number");
+
+    let quantity = 1;
+
+    plusBtn.addEventListener("click", () => {
+        quantity++;
+        numberEl.textContent = quantity;
+    });
+
+    minusBtn.addEventListener("click", () => {
+        if (quantity > 1) {
+            quantity--;
+            numberEl.textContent = quantity;
+        }
+    });
+
+});
+
+
+//==================================================== New jewelrys in eye icon - Modal Color Select FINAL FIX
+
+document.addEventListener("click", function (e) {
+
+  if (e.target.classList.contains("color")) {
+
+    const clickedColor = e.target;
+    const group = clickedColor.closest(".color-group");
+    const colors = group.querySelectorAll(".color");
+
+    colors.forEach(c => c.classList.remove("active"));
+
+    clickedColor.classList.add("active");
+
+    const selectedText = group.closest(".option-group")
+                              .querySelector(".selected-color");
+
+    const colorName = clickedColor.classList[1];
+
+    selectedText.textContent =
+      colorName.charAt(0).toUpperCase() + colorName.slice(1);
+  }
+
+});
+
+// ================= New jewelrys in eye icon - Quantity Box JS =================
+
+document.querySelectorAll(".qty-box2").forEach(box => {
+
+  const minusBtn = box.querySelector("button:first-child");
+  const plusBtn = box.querySelector("button:last-child");
+  const numberEl = box.querySelector("span");
+
+  let quantity = 1;
+
+  plusBtn.addEventListener("click", function () {
+    quantity++;
+    numberEl.textContent = quantity;
+  });
+
+  minusBtn.addEventListener("click", function () {
+    if (quantity > 1) {
+      quantity--;
+      numberEl.textContent = quantity;
+    }
+  });
+
+});
+
+// ================= New jewelrys in eye icon - Modal Image Slider 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const mainImg = document.querySelector(".main-img");
+  const thumbs = document.querySelectorAll(".thumb-wrapper img");
+  const prevBtn = document.querySelector(".img-prev");
+  const nextBtn = document.querySelector(".img-next");
+
+  let currentIndex = 0;
+
+  const images = Array.from(thumbs).map(img => img.src);
+
+  function updateImage() {
+    mainImg.src = images[currentIndex];
+
+    thumbs.forEach(thumb => {
+      thumb.classList.remove("active-thumb");
+    });
+
+    thumbs[currentIndex].classList.add("active-thumb");
+  }
+
+  nextBtn.addEventListener("click", function () {
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+
+    updateImage();
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+
+    updateImage();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", function () {
+      currentIndex = index;
+      updateImage();
+    });
+  });
+
+});
+
+// ================= NEW JEWELRYS SLIDER =================
+const sliderWrapper = document.querySelector(".new-slider-wrapper");
+const sliderTrack = document.querySelector(".new-slider");
+
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+sliderWrapper.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  sliderTrack.style.transition = "none";
+  startX = e.pageX;
+  scrollLeft = sliderTrack.offsetLeft;
+});
+
+sliderWrapper.addEventListener("mouseleave", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mouseup", () => {
+  isDragging = false;
+  sliderTrack.style.transition = "transform 0.4s ease";
+});
+
+sliderWrapper.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+
+  const x = e.pageX;
+  const walk = (x - startX);
+
+  sliderTrack.style.transform = `translateX(${scrollLeft + walk}px)`;
+});
+
+// ================= section-product Sticky Cart Quantity =================
+
+const stickyQtyBox = document.querySelector(".sticky-cart-qty");
+
+if(stickyQtyBox){
+
+	const minusBtn = stickyQtyBox.querySelector("button:first-child");
+	const plusBtn = stickyQtyBox.querySelector("button:last-child");
+	const numberEl = stickyQtyBox.querySelector("span");
+
+	let quantity = 1;
+
+	plusBtn.addEventListener("click", function(){
+
+		quantity++;
+		numberEl.textContent = quantity;
+
+	});
+
+	minusBtn.addEventListener("click", function(){
+
+		if(quantity > 1){
+			quantity--;
+			numberEl.textContent = quantity;
+		}
+
+	});
+
+}
+
+// ================= Sticky Cart Show After Fashion Section =================
+
+const stickyCart = document.querySelector(".section-product-sticky-cart");
+const fashionSection = document.querySelector(".section-fashion-arrivals");
+
+window.addEventListener("scroll", function(){
+
+	if(!stickyCart || !fashionSection) return;
+
+	const fashionTop = fashionSection.offsetTop;
+	const scrollPosition = window.scrollY + window.innerHeight;
+
+	if(scrollPosition >= fashionTop){
+		stickyCart.style.display = "block";
+	}else{
+		stickyCart.style.display = "none";
+	}
+
+});
