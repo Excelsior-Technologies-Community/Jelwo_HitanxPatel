@@ -46,37 +46,42 @@ if (currentIndex > 0) {
 
 updateArrows();
 
-// ================= section-about-clients-main Clients Image Slider =================
+//==================================================== section-contact-locations-main silder
+const contactSlider = document.querySelector(".contact-slider");
+const next = document.querySelector(".contact-next");
+const prev = document.querySelector(".contact-prev");
 
-const clientImages = [
-	"https://jelwo.myshopify.com/cdn/shop/files/jewelry-testi-3.jpg?v=1741598801&width=90",
-	"https://jelwo.myshopify.com/cdn/shop/files/jewelry-testi-1.jpg?v=1741598801&width=90",
-	"https://jelwo.myshopify.com/cdn/shop/files/jewelry-testi-4.jpg?v=1741598801&width=90",
-	"https://jelwo.myshopify.com/cdn/shop/files/jewelry-testi-2.jpg?v=1741598801&width=90"
-];
+const contactItems = document.querySelectorAll(".contact-location-item");
 
-const clientImg = document.getElementById("clientImg");
-const next = document.querySelector(".clients-next");
-const prev = document.querySelector(".clients-prev");
+let contactIndex = 0;
+const visibleCards = 4;
 
-let index = 0;
+function contactWidth(){
+	return contactItems[0].getBoundingClientRect().width;
+}
 
 next.addEventListener("click", () => {
-	index++;
 
-	if(index >= clientImages.length){
-		index = 0;
+	if(contactIndex < contactItems.length - visibleCards){
+
+		contactIndex++;
+
+		contactSlider.style.transform =
+		`translateX(-${contactIndex * contactWidth()}px)`;
+
 	}
 
-	clientImg.src = clientImages[index];
 });
 
 prev.addEventListener("click", () => {
-	index--;
 
-	if(index < 0){
-		index = clientImages.length - 1;
+	if(contactIndex > 0){
+
+		contactIndex--;
+
+		contactSlider.style.transform =
+		`translateX(-${contactIndex * contactWidth()}px)`;
+
 	}
 
-	clientImg.src = clientImages[index];
 });
