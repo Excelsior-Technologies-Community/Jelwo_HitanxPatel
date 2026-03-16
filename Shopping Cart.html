@@ -51,9 +51,17 @@
                             <i class="bi bi-heart"></i>
                             <span class="count">(0)</span>
                         </div>
-                        <div class="icon-item">
+                        <!-- <div class="icon-item">
                             <i class="bi bi-bag"></i>
                             <span class="count">(0)</span>
+                        </div> -->
+                        <div class="icon-item"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#cartCanvas">
+
+                            <i class="bi bi-bag"></i>
+                            <span class="count">(0)</span>
+
                         </div>
                     </div>
                 </div>
@@ -739,6 +747,267 @@
 
     </header>
 
+    <div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="cartCanvas">
+
+        <div class="cart-promo text-center">
+            New customers save 10% with code <b>WELCOME10</b>
+        </div>
+        
+        <div class="offcanvas-header">
+
+            <h5 class="offcanvas-title">My shopping cart</h5>
+
+            <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+            </button>
+
+        </div>
+
+        <div class="offcanvas-body text-center">
+
+            <div class="cart-empty text-center">
+
+                <i class="bi bi-bag cart-icon"></i>
+
+                <p class="cart-text">Your cart is empty</p>
+
+                <button class="cart-btn">
+                    CONTINUE SHOPPING
+                </button>
+
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                <h6>You might also like</h6>
+
+                <div class="d-flex gap-3">
+                    <i class="bi bi-arrow-left" id="suggestPrev"></i>
+                    <i class="bi bi-arrow-right" id="suggestNext"></i>
+                </div>
+
+            </div>
+
+            <div class="suggest-slider-wrapper">
+
+                <div class="suggest-slider">
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-7.jpg?v=1742442751&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Simple earrings</p>
+                            <span class="product-price">Rs. 15.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-27.jpg?v=1742444221&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Glitter diamond ring</p>
+                            <span class="product-price">Rs. 10.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-22.jpg?v=1742443763&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Gold nose pin</p>
+                            <span class="product-price">Rs. 12.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-52.jpg?v=1742445540&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Gemstone jhumkas</p>
+                            <span class="product-price">Rs. 18.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-42.jpg?v=1742444936&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Gemstone chain braclet</p>
+                            <span class="product-price">Rs. 17.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-13.jpg?v=1742443330&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Framed gold pendant</p>
+                            <span class="product-price">Rs. 22.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-32.jpg?v=1742444512&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Flora diamond bangle</p>
+                            <span class="product-price">Rs. 28.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-47.jpg?v=1742445430&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Drop gold earrings</p>
+                            <span class="product-price">Rs. 14.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-37.jpg?v=1742444776&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Cluster diamond ring</p>
+                            <span class="product-price">Rs. 12.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-37.jpg?v=1742444776&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Cluster diamond ring</p>
+                            <span class="product-price">Rs. 26.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-57.jpg?v=1742445682&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Chic diamond ring</p>
+                            <span class="product-price">Rs. 22.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="suggest-item d-flex align-items-center gap-3">
+
+                        <div class="suggest-img">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-product-17.jpg?v=1742443575&width=533" class="img-main">
+
+                            <img src="https://jelwo.myshopify.com/cdn/shop/files/jewelry-pro-21.jpg" class="img-hover">
+
+                        </div>
+
+                        <div class="text-start">
+                            <p class="product-name mb-1">Blossom diamond bangle</p>
+                            <span class="product-price">Rs. 28.00</span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <section class="section-collections-main">
         <div class="collections-banner d-flex align-items-center justify-content-center text-center">
             <div>
@@ -746,7 +1015,7 @@
                 <h2 class="collections-title">Shopping Cart</h2>
             </div>
         </div>
-    </section>    
+    </section>
 
     <section class="section-footer-main pt-5">
         <div class="container">

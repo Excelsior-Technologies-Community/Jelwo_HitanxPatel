@@ -45,3 +45,45 @@ if (currentIndex > 0) {
 });
 
 updateArrows();
+
+//==================================================== Shopping cart icon
+const suggestSlider = document.querySelector(".suggest-slider");
+const suggestItems = document.querySelectorAll(".suggest-item");
+const suggestNext = document.getElementById("suggestNext");
+const suggestPrev = document.getElementById("suggestPrev");
+
+let suggestIndex = 0;
+
+suggestNext.addEventListener("click", () => {
+
+	if(suggestIndex < suggestItems.length - 1){
+		suggestIndex++;
+		suggestSlider.style.transform =
+		`translateX(-${suggestIndex * 100}%)`;
+	}
+
+});
+
+suggestPrev.addEventListener("click", () => {
+
+	if(suggestIndex > 0){
+		suggestIndex--;
+		suggestSlider.style.transform =
+		`translateX(-${suggestIndex * 100}%)`;
+	}
+
+});
+
+// auto silder in shoping cart
+setInterval(() => {
+
+	if(suggestIndex < suggestItems.length - 1){
+		suggestIndex++;
+	}else{
+		suggestIndex = 0;
+	}
+
+	suggestSlider.style.transform =
+	`translateX(-${suggestIndex * 100}%)`;
+
+}, 5000);
